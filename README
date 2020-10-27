@@ -1,3 +1,22 @@
+В корневой папке проекта petalinux создать модуль с именем fcsnull:
+petalinux-create -t modules --names fcsnull --enable
+В результате в папке project-spec/meta-user/recipes-modules/ появится папка fcsnull.
+Далее можно действовать по одному из следующих вариантов:
+1. Заменить только что созданную папку fcsnull одноименной папкой из репозитория.
+2. Если проект петалинукса находится под управлением git, то можно использовать fcsnull в качестве подмодуля главного проекта. 
+2.1 Добавить подмодуль fcsnull:
+git submodule add <адрес репозитория snull>  project-spec/meta-user/recipes-modules/fcsnull
+2.2 fcsnull имеет свои подмодули, поэтому нужно перейти в директорию  project-spec/meta-user/recipes-modules/fcsnull и далее следует выдать команды:
+git submodule init
+git submodule update
+После этого в папках подмодулей fcsnull появятся файлы с исходными кодами подмодулей.
+2.3 Перейти в корневую папку проекта петалинукса и выполнить коммит на добавление подмодуля.
+3. Если проект петалинукса находится под управлением git, то можно использовать fcsnull в качестве подмодуля главного проекта. 
+Клонировать подмодуль fcsnull сразу с подмодулями в папку созданную ранее:
+git clone --recursive <адрес репозитория fcsnull>  project-spec/meta-user/recipes-modules/fcsnull
+В результате в папке fcsnull появится репозиторий fcsnull с подмодулями.
+
+
 PetaLinux User Module Template
 ===================================
 
